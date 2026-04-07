@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
@@ -315,149 +315,149 @@
         portfolio: "https://isa-capa.github.io/portfolio/",
       };
 
-      const categories = {
-        visual: {
-          label: "Visual",
-          short: "Detectas patrones y arquitectura mas rapido con estructura grafica.",
-          hacks: [
-            "Convierte cada tema en un mapa de flujo de 1 pagina.",
-            "Usa codificacion dual: texto breve + diagrama.",
-            "Antes de codificar, dibuja entradas, proceso y salida.",
-          ],
-          avoid: "Evita ver videos pasivamente sin construir tu propio esquema.",
-        },
-        auditory: {
-          label: "Auditivo",
-          short: "Consolidas mejor cuando verbalizas y explicas la logica.",
-          hacks: [
-            "Aplica Feynman: explica el concepto como a alguien de 10 anos.",
-            "Cierra notas y haz una explicacion oral de 90 segundos.",
-            "Usa sesiones cortas de debate tecnico con un companero.",
-          ],
-          avoid: "Evita depender solo de clases grabadas sin recuperacion activa.",
-        },
-        reading: {
-          label: "Lectura / Escritura",
-          short: "Aprendes fuerte al transformar informacion en texto propio.",
-          hacks: [
-            "Resume la doc oficial en checklist accionable.",
-            "Crea flashcards de conceptos criticos y trampas comunes.",
-            "Lleva diario de errores: causa, solucion y regla aprendida.",
-          ],
-          avoid: "Evita releer apuntes sin autoevaluarte desde memoria.",
-        },
-        kinesthetic: {
-          label: "Practico / Kinestesico",
-          short: "Fijas conocimiento cuando pruebas, fallas y ajustas rapido.",
-          hacks: [
-            "Regla Tutorial + 1: agrega una mejora propia siempre.",
-            "Trabaja con mini retos diarios de 25 a 50 minutos.",
-            "Mide avance por bugs resueltos y features entregadas.",
-          ],
-          avoid: "Evita saltar a codigo sin un modelo mental basico del problema.",
-        },
-      };
+const categories = { 
+  visual: {
+    label: "Visual",
+    short: "Detectas patrones y arquitectura más rápido con estructura gráfica.",
+    hacks: [
+      "Convierte cada tema en un mapa de flujo de 1 página.",
+      "Usa codificación dual: texto breve + diagrama.",
+      "Antes de codificar, dibuja entradas, proceso y salida.",
+    ],
+    avoid: "Evita ver videos pasivamente sin construir tu propio esquema.",
+  },
+  auditory: {
+    label: "Auditivo",
+    short: "Consolidas mejor cuando verbalizas y explicas la lógica.",
+    hacks: [
+      "Aplica Feynman: explica el concepto como a alguien de 10 años.",
+      "Cierra notas y haz una explicación oral de 90 segundos.",
+      "Usa sesiones cortas de debate técnico con un compañero.",
+    ],
+    avoid: "Evita depender solo de clases grabadas sin recuperación activa.",
+  },
+  reading: {
+    label: "Lectura / Escritura",
+    short: "Aprendes fuerte al transformar información en texto propio.",
+    hacks: [
+      "Resume la doc oficial en checklist accionable.",
+      "Crea flashcards de conceptos críticos y trampas comunes.",
+      "Lleva diario de errores: causa, solución y regla aprendida.",
+    ],
+    avoid: "Evita releer apuntes sin autoevaluarte desde memoria.",
+  },
+  kinesthetic: {
+    label: "Práctico / Kinestésico",
+    short: "Fijas conocimiento cuando pruebas, fallas y ajustas rápido.",
+    hacks: [
+      "Regla Tutorial + 1: agrega una mejora propia siempre.",
+      "Trabaja con mini retos diarios de 25 a 50 minutos.",
+      "Mide avance por bugs resueltos y features entregadas.",
+    ],
+    avoid: "Evita saltar a código sin un modelo mental básico del problema.",
+  },
+};
 
-      const universalHabits = [
-        "Active recall al cierre: explica o escribe sin mirar notas.",
-        "Spaced repetition: repaso en 24h, 3 dias, 1 semana y 1 mes.",
-        "Intercalado: mezcla temas (logica, sintaxis, debugging) en una sesion.",
-        "Worked examples: estudia soluciones resueltas antes de resolver desde cero.",
-        "Gestion de carga cognitiva: divide problemas complejos en subpasos.",
-      ];
+const universalHabits = [
+  "Active recall al cierre: explica o escribe sin mirar notas.",
+  "Spaced repetition: repaso en 24h, 3 días, 1 semana y 1 mes.",
+  "Intercalado: mezcla temas (lógica, sintaxis, debugging) en una sesión.",
+  "Worked examples: estudia soluciones resueltas antes de resolver desde cero.",
+  "Gestión de carga cognitiva: divide problemas complejos en subpasos.",
+];
 
-      const questions = [
-        {
-          prompt: "Al empezar un tema complejo (eje. asincronia), ¿qué te da mas claridad inicial?",
-          options: [
-            { text: "Un diagrama del flujo completo del proceso", category: "visual" },
-            { text: "Escuchar una explicación paso a paso", category: "auditory" },
-            { text: "Leer una guía técnica y tomar notas", category: "reading" },
-            { text: "Montar un mini experimento en código", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "Cuando intentas pasar de memorizar a entender, ¿qué acción te funciona mejor?",
-          options: [
-            { text: "Conectar conceptos con mapas y relaciones visuales", category: "visual" },
-            { text: "Explicar con tus palabras y analogías", category: "auditory" },
-            { text: "Redactar un resumen de por que y como funciona", category: "reading" },
-            { text: "Resolver un caso nuevo para transferir el concepto", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "Si tu memoria de trabajo se satura, ¿cómo recuperas foco?",
-          options: [
-            { text: "Divido el problema en bloques visuales pequeños", category: "visual" },
-            { text: "Ordeno ideas hablando en voz alta", category: "auditory" },
-            { text: "Escribo pasos mínimos en lista corta", category: "reading" },
-            { text: "Pruebo una versión mínima y la itero", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "¿Qué formato te ayuda más a evitar el efecto de atención dividida?",
-          options: [
-            { text: "Código comentado con esquema visual integrado", category: "visual" },
-            { text: "Demo guiada con explicación sincronizada", category: "auditory" },
-            { text: "Instrucciones y ejemplo resuelto en el mismo documento", category: "reading" },
-            { text: "Ejercicio guiado dentro del mismo entorno de práctica", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "En repaso, ¿qué estrategia acelera mejor tu recuperación de información?",
-          options: [
-            { text: "Reconstruir el mapa del tema sin ver material", category: "visual" },
-            { text: "Explicar de memoria en audio corto", category: "auditory" },
-            { text: "Responder preguntas escritas sin apoyo", category: "reading" },
-            { text: "Resolver un reto similar desde cero", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "Cuando terminas un tutorial, ¿qué forma de continuar te resulta más natural para realmente aprender?",
-          options: [
-            { text: "Rediseñar o visualizar la solución con diagramas o esquemas", category: "visual" },
-            { text: "Explicar en voz alta por qué funciona cada parte", category: "auditory" },
-            { text: "Escribir mis propias notas o pasos antes de aplicarlo", category: "reading" },
-            { text: "Modificar el proyecto y agregar una funcionalidad nueva", category: "kinesthetic" },
-        ],
-        },
-        {
-          prompt: "Cuando estudias documentacion oficial, ¿qué conversión te aporta más valor?",
-          options: [
-            { text: "Tabla visual de conceptos y casos de uso", category: "visual" },
-            { text: "Resumen hablado de conceptos clave", category: "auditory" },
-            { text: "Checklist escrito con ejemplos y anti patrones", category: "reading" },
-            { text: "Prototipo inmediato con lo leído", category: "kinesthetic" },
-          ],
-        },
-        {
-          prompt: "En trabajo en equipo, ¿cómo aprendes más rápido un módulo nuevo?",
-          options: [
-            { text: "Viendo arquitectura, diagramas y flujos del sistema", category: "visual" },
-            { text: "Escuchando el razonamiento técnico durante revisiones o explicaciones", category: "auditory" },
-            { text: "Leyendo documentación, comentarios y notas explicativas del código", category: "reading" },
-            { text: "Trabajando directamente en el código, por ejemplo con pair programming", category: "kinesthetic" },
-],
-        },
-        {
-          prompt: "Al final del dia, ¿qué evidencia te confirma aprendizaje real y no solo fluidez?",
-          options: [
-            { text: "Poder reconstruir el sistema en un esquema propio", category: "visual" },
-            { text: "Poder explicarlo claro sin muletillas técnicas", category: "auditory" },
-            { text: "Tener un resumen que responda por que y como", category: "reading" },
-            { text: "Tener un bug resuelto o feature funcionando", category: "kinesthetic" },
-          ],
-        },
-        {
-        prompt: "Si quisieras mejorar tu rendimiento en las próximas 2 semanas, ¿qué herramienta usarías primero?",
-options: [
-  { text: "Un plan visual semanal con bloques de estudio y objetivos claros", category: "visual" },
-  { text: "Explicarte en voz alta lo que aprendiste cada día (tipo mini resumen)", category: "auditory" },
-  { text: "Llevar un registro escrito de lo que aprendes, errores y mejoras", category: "reading" },
-  { text: "Trabajar en sprints cortos con práctica constante y retos", category: "kinesthetic" },
-],
-        },
-      ];
+const questions = [
+  {
+    prompt: "Al empezar un tema complejo (ej. asincronía), ¿qué te da más claridad inicial?",
+    options: [
+      { text: "Un diagrama del flujo completo del proceso", category: "visual" },
+      { text: "Escuchar una explicación paso a paso", category: "auditory" },
+      { text: "Leer una guía técnica y tomar notas", category: "reading" },
+      { text: "Montar un mini experimento en código", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Cuando intentas pasar de memorizar a entender, ¿qué acción te funciona mejor?",
+    options: [
+      { text: "Conectar conceptos con mapas y relaciones visuales", category: "visual" },
+      { text: "Explicar con tus palabras y analogías", category: "auditory" },
+      { text: "Redactar un resumen de por qué y cómo funciona", category: "reading" },
+      { text: "Resolver un caso nuevo para transferir el concepto", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Si tu memoria de trabajo se satura, ¿cómo recuperas foco?",
+    options: [
+      { text: "Divido el problema en bloques visuales pequeños", category: "visual" },
+      { text: "Ordeno ideas hablando en voz alta", category: "auditory" },
+      { text: "Escribo pasos mínimos en lista corta", category: "reading" },
+      { text: "Pruebo una versión mínima y la itero", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "¿Qué formato te ayuda más a evitar el efecto de atención dividida?",
+    options: [
+      { text: "Código comentado con esquema visual integrado", category: "visual" },
+      { text: "Demo guiada con explicación sincronizada", category: "auditory" },
+      { text: "Instrucciones y ejemplo resuelto en el mismo documento", category: "reading" },
+      { text: "Ejercicio guiado dentro del mismo entorno de práctica", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "En repaso, ¿qué estrategia acelera mejor tu recuperación de información?",
+    options: [
+      { text: "Reconstruir el mapa del tema sin ver material", category: "visual" },
+      { text: "Explicar de memoria en audio corto", category: "auditory" },
+      { text: "Responder preguntas escritas sin apoyo", category: "reading" },
+      { text: "Resolver un reto similar desde cero", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Cuando terminas un tutorial, ¿qué forma de continuar te resulta más natural para realmente aprender?",
+    options: [
+      { text: "Rediseñar o visualizar la solución con diagramas o esquemas", category: "visual" },
+      { text: "Explicar en voz alta por qué funciona cada parte", category: "auditory" },
+      { text: "Escribir mis propias notas o pasos antes de aplicarlo", category: "reading" },
+      { text: "Modificar el proyecto y agregar una funcionalidad nueva", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Cuando estudias documentación oficial, ¿qué conversión te aporta más valor?",
+    options: [
+      { text: "Tabla visual de conceptos y casos de uso", category: "visual" },
+      { text: "Resumen hablado de conceptos clave", category: "auditory" },
+      { text: "Checklist escrito con ejemplos y antipatrones", category: "reading" },
+      { text: "Prototipo inmediato con lo leído", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "En trabajo en equipo, ¿cómo aprendes más rápido un módulo nuevo?",
+    options: [
+      { text: "Viendo arquitectura, diagramas y flujos del sistema", category: "visual" },
+      { text: "Escuchando el razonamiento técnico durante revisiones o explicaciones", category: "auditory" },
+      { text: "Leyendo documentación, comentarios y notas explicativas del código", category: "reading" },
+      { text: "Trabajando directamente en el código, por ejemplo con pair programming", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Al final del día, ¿qué evidencia te confirma aprendizaje real y no solo fluidez?",
+    options: [
+      { text: "Poder reconstruir el sistema en un esquema propio", category: "visual" },
+      { text: "Poder explicarlo claro sin muletillas técnicas", category: "auditory" },
+      { text: "Tener un resumen que responda por qué y cómo", category: "reading" },
+      { text: "Tener un bug resuelto o feature funcionando", category: "kinesthetic" },
+    ],
+  },
+  {
+    prompt: "Si quisieras mejorar tu rendimiento en las próximas 2 semanas, ¿qué herramienta usarías primero?",
+    options: [
+      { text: "Un plan visual semanal con bloques de estudio y objetivos claros", category: "visual" },
+      { text: "Explicarte en voz alta lo que aprendiste cada día (tipo mini resumen)", category: "auditory" },
+      { text: "Llevar un registro escrito de lo que aprendes, errores y mejoras", category: "reading" },
+      { text: "Trabajar en sprints cortos con práctica constante y retos", category: "kinesthetic" },
+    ],
+  },
+];
 
       const state = {
         screen: "welcome",
@@ -489,7 +489,7 @@ options: [
       function renderFooterMessage(el) {
         el.innerHTML = `
           <div style="text-align:center;">
-            <p class="muted" style="font-size:16px; margin:0;">En el mundo de la tecnología, el único límite real no es tu inteligencia, sino tu curiosidad y tu capacidad de no rendirte.</p>
+            <p class="muted" style="font-size:16px; margin:0;">En el mundo de la tecnologÃ­a, el Ãºnico lÃ­mite real no es tu inteligencia, sino tu curiosidad y tu capacidad de no rendirte.</p>
           </div>
         `;
       }
@@ -520,10 +520,16 @@ options: [
           <h1 class="title">Descubre tu combinación de aprendizaje para rendir mejor en bootcamp</h1>
           <p class="subtitle">
             Basado en neuroandragogia y psicologia cognitiva: detecta preferencias sensoriales sin encasillarte,
-            incorpora multimodalidad y te da un plan accionable para aprender mas rápido.
+            incorpora multimodalidad y te da un plan accionable para aprender mas rÃ¡pido.
           </p>
           <div class="grid-3">
-            <article class="mini"><small class="muted">Investigación</small><b>Realizada con Gemini pro (Deep Research) </b></article>
+            <article class="mini">
+              <small class="muted">Investigacion</small>
+              <b>Realizada con Gemini pro (Deep Research)</b>
+              <div class="actions" style="margin-top:10px;">
+                <a class="chip" href="https://docs.google.com/document/d/144HFmNCkissAqCI4UdNsz9tEiNRmsKAWOhz91v-JfCY/edit?tab=t.0" target="_blank" rel="noopener noreferrer">Ver investigacion</a>
+              </div>
+            </article>
             <article class="mini"><small class="muted">Diagnostico</small><b>Preferencia principal + complementaria</b></article>
             <article class="mini"><small class="muted">Resultado</small><b>Hacks, anti patrones y plan de sistema de aprendizaje para las siguientes 2 semanas</b></article>
           </div>
@@ -732,3 +738,4 @@ options: [
     </script>
   </body>
 </html>
+

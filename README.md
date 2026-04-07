@@ -2,6 +2,8 @@
 
 Aplicacion web interactiva para identificar la combinacion de aprendizaje predominante de estudiantes (Visual, Auditivo, Lectura/Escritura y Practico/Kinestesico), con recomendaciones personalizadas y habitos de estudio basados en evidencia.
 
+![Una herramienta sencilla pero potente que ayuda a los estudiantes a comprender cómo aprenden mejor y a convertirlo en un sistema de estudio personalizado para tener éxito en entornos de aprendizaje intensivo como los cursos intensivos.](assets/pantallaDiagnostico.png)
+
 ## Que incluye
 
 - Pantalla de bienvenida tipo onboarding.
@@ -34,24 +36,4 @@ Ejecuta:
 npm run typecheck
 ```
 
-## Personalizacion rapida
 
-En `index.html`, ajusta:
-
-- `author.name`
-- `author.email`
-- `author.github`
-- `author.linkedin`
-- `author.portfolio`
-
-Y, si quieres, modifica preguntas y hacks en:
-
-- `questions`
-- `categories`
-- `universalHabits`
-
-## Nota
-
-Si ves cambios y no se reflejan, usa recarga forzada en navegador:
-
-- `Ctrl + F5`
